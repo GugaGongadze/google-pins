@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'My first AGM project';
+  lat = 41.7151;
+  lng = 44.8271;
 }
