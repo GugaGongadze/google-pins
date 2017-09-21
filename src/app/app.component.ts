@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IMarker } from './marker';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent {
   // Start Position
   lat = 41.7151;
   lng = 44.8271;
-  markers: marker[] = [
+  marker: IMarker[];
+
+  markers: IMarker[] = [
     {
       name: 'Tbilisi',
       lat: 41.7151,
@@ -36,12 +39,9 @@ export class AppComponent {
   constructor() {
 
   }
-}
 
-// Marker Type
-interface marker {
-  name?: string;
-  lat: number;
-  lng: number;
-  draggable: boolean;
+  clickedMarker(markers: IMarker, index: number) {
+    console.log('Clicked marker ' + this.markers[index].name + ' at index ' + index);
+  }
+
 }
