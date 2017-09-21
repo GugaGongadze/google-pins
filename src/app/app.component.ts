@@ -14,6 +14,8 @@ export class AppComponent {
   lat = 41.7151;
   lng = 44.8271;
   marker: IMarker[];
+  newMarker;
+  updMarker;
 
   markers: IMarker[] = [
     {
@@ -44,4 +46,29 @@ export class AppComponent {
     console.log('Clicked marker ' + this.markers[index].name + ' at index ' + index);
   }
 
+  mapClicked($event: any) {
+    this.newMarker = {
+      name: 'Untitled',
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: false
+    };
+
+    this.markers.push(this.newMarker);
+
+  }
+
+  markerDragEnd(marker: any, $event: any) {
+    console.log('dragEnd', marker, $event);
+
+    this.updMarker = {
+      name: marker.name,
+      lat: parseFloat(marker.lat),
+      lng: parseFloat(marker.lng),
+      draggable: false
+    };
+
+    const newLat = $event.coords.lat;
+    const newLng = $event.coords.lng;
+  }
 }

@@ -22,20 +22,20 @@
   <div class="row">
     <div class="col-md-12">
       <div class="map">
-        <agm-map 
-            [latitude]="lat" 
-            [longitude]="lng" 
-            [zoom]="zoom" 
-            [disableDefaultUI]="false" 
-            [zoomControl]="false" 
+        <agm-map
+            [latitude]="lat"
+            [longitude]="lng"
+            [zoom]="zoom"
+            [disableDefaultUI]="false"
+            [zoomControl]="false"
             (mapClick)="mapClicked($event)">
-          <agm-marker 
+          <agm-marker
             *ngFor="let m of markers; let i = index"
             (markerClick)="clickedMarker(marker, i)"
-            [latitude]="m.lat" 
+            [latitude]="m.lat"
             [longitude]="m.lng"
             [markerDraggable]="m.draggable"
-            (dragEng)="markerDragEnd(m, $event)">
+            (dragEnd)="markerDragEnd(m, $event)">
             <agm-info-window>
               <strong>{{m.name}}</strong>
             </agm-info-window>
